@@ -45,7 +45,7 @@
                             </li>
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user') }}">{{ __('user') }}</a>
+                            <a class="nav-link" href="{{ route('pengguna') }}">{{ __('pengguna') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('cabang') }}">{{ __('cabang') }}</a>

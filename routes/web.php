@@ -17,10 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/user', function () {
-    return view('user');
-})->name('user');
-
 Route::get('/cabang', function () {
     return view('cabang');
 })->name('cabang');
@@ -63,16 +59,15 @@ Route::patch('divisi/{id}', 'DivisiController@update')->name('divisi.update');
 
 Route::delete('divisi/{id}', 'DivisiController@delete')->name('divisi.delete');
 #end of routes jabatan
+Route::get('/pengguna', 'PenggunaController@index')->name('pengguna');
+Route::get('/user/create', 'PenggunaController@create')->name('user.create');
+Route::post('user', 'PenggunaController@store')->name('user.store');
 
-Route::get('/user', 'UserController@index')->name('user');
-Route::get('/user/create', 'UserController@create')->name('user.create');
-Route::post('user', 'UserController@store')->name('user.store');
+Route::get('/user/{id}/edit', 'PenggunaController@edit')->name('user.edit');
+Route::patch('user/{id}', 'PenggunaController@update')->name('user.update');
 
-Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
-Route::patch('user/{id}', 'UserController@update')->name('user.update');
-
-Route::delete('user/{id}', 'UserController@delete')->name('user.delete');
-
+Route::delete('user/{id}', 'PenggunaController@delete')->name('user.delete');
 
 
-//Route::get('/user', 'UserController@index')->name('user');
+
+//Route::get('/user', 'PenggunaController@index')->name('user');

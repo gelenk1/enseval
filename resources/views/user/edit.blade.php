@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -51,15 +52,15 @@
                             <label for="inputUser">Cabang</label>
                             <select name="cabang" class="form-control">
                                 <option disabled> Pilih cabang</option>
-                                @foreach ($cabang as $key=> $itemCabang)
+                                @foreach ($cabang as $keyCabang=> $itemCabang)
                                     @if(!empty($data->info))
-                                        @if($data->info->idCabang==$key)
-                                            <option value="{{$key}}" selected>{{$itemCabang}}</option>
+                                        @if($data->info->idCabang==$itemCabang->id)
+                                            <option value="{{$itemCabang->id}}" selected>{{$itemCabang->namaCabang}}</option>
                                             @else
-                                            <option value="{{$key}}">{{$itemCabang}}</option>
+                                            <option value="{{$itemCabang->id}}">{{$itemCabang->namaCabang}}</option>
                                         @endif
                                     @else
-                                        <option value="{{$key}}">{{$itemCabang}}</option>
+                                        <option value="{{$itemCabang->id}}">{{$itemCabang->namaCabang}}</option>
                                     @endif
                                 @endforeach
                             </select>
@@ -68,15 +69,15 @@
                             <label for="inputUser">Divisi</label>
                             <select name="divisi" class="form-control">
                                 <option disabled> Pilih divisi</option>
-                                @foreach ($divisi as $key=> $itemDivisi)
+                                @foreach ($divisi as $keyDivisi=> $itemDivisi)
                                     @if(!empty($data->info))
-                                        @if($data->info->idDivisi==$key)
-                                            <option value="{{$key}}" selected>{{$itemDivisi}}</option>
+                                        @if($data->info->idDivisi==$itemDivisi->id)
+                                            <option value="{{$itemDivisi->id}}" selected>{{$itemDivisi->namaDivisi}}</option>
                                             @else
-                                            <option value="{{$key}}">{{$itemDivisi}}</option>
+                                            <option value="{{$itemDivisi->id}}">{{$itemDivisi->namaDivisi}}</option>
                                         @endif
                                     @else
-                                        <option value="{{$key}}">{{$itemDivisi}}</option>
+                                        <option value="{{$itemDivisi->id}}">{{$itemDivisi->namaDivisi}}</option>
                                     @endif
                                 @endforeach
                             </select>
@@ -85,15 +86,15 @@
                             <label for="inputUser">Jabatan</label>
                             <select name="jabatan" class="form-control">
                                 <option disabled> Pilih jabatan</option>
-                                @foreach ($jabatan as $key=> $itemJabatan)
+                                @foreach ($jabatan as $keyJabatan=> $itemJabatan)
                                     @if(!empty($data->info))
-                                        @if($data->info->idDivisi==$key)
-                                            <option value="{{$key}}" selected>{{$itemJabatan}}</option>
+                                        @if($data->info->idJabatan==$itemJabatan->id)
+                                            <option value="{{$itemJabatan->id}}" selected>{{$itemJabatan->namaJabatan}}</option>
                                             @else
-                                            <option value="{{$key}}">{{$itemJabatan}}</option>
+                                            <option value="{{$itemJabatan->id}}">{{$itemJabatan->namaJabatan}}</option>
                                         @endif
                                     @else
-                                        <option value="{{$key}}">{{$itemJabatan}}</option>
+                                        <option value="{{$itemJabatan->id}}">{{$itemJabatan->namaJabatan}}</option>
                                     @endif
                                 @endforeach
                             </select>
@@ -116,8 +117,8 @@
                             <label for="inputUser">Level</label>
                             <select name="level" class="form-control">
                                 <option disabled selected> Pilih level</option>
-                                @foreach ($level as $key=> $itemLevel)
-                                <option value="{{$key}}" {{$key==$data->level ? 'selected' : ''}}>{{$itemLevel}}</option>
+                                @foreach ($level as $keyLevel=> $itemLevel)
+                                <option value="{{$keyLevel}}" {{$keyLevel==$data->level ? 'selected' : ''}}>{{$itemLevel}}</option>
                                @endforeach
                           </select>
                                <small id="userHelp" class="form-text text-muted">level Harus Diisi</small>

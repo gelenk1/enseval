@@ -7,8 +7,10 @@ use App\User;
 use App\Cabang;
 use App\Divisi;
 use App\Jabatan;
+use App\Profile;
 use Illuminate\Support\Facades\Hash;
-class UserController extends Controller
+use DB;
+class PenggunaController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -75,9 +77,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $level = User::level();
-        $cabang = Cabang::get()->pluck('namaCabang', 'id')->all();
-        $divisi = Divisi::get()->pluck('namaDivisi', 'id')->all();
-        $jabatan = Jabatan::get()->pluck('namaJabatan', 'id')->all();
+        $cabang = Cabang::get();
+        $divisi = Divisi::get();
+        $jabatan = Jabatan::get();
         $data = User::detailUser($id);
         return view('user.edit', compact('data', 'divisi', 'jabatan', 'cabang', 'level'));
     }
@@ -114,14 +116,15 @@ class UserController extends Controller
 
         $user = User::find($id);
         $user->updated($data);
-        $user->info()->create($dataInfo);
-        return redirect('user');
+        DB::table('info_user')->where('nik', $user->nik)->update($dataInfo);
+
+        return redirect('pengguna');
     }
 
     public function delete($id)
     {
         $user = User::find($id);
         $user->delete();
-        return redirect('user');
+        return redirect('pengguna');
     }
 }
