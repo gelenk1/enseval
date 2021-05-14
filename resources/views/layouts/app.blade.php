@@ -44,6 +44,7 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @else
+                        @if(Auth::user()->level!=1)
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('pengguna') }}">{{ __('pengguna') }}</a>
                         </li>
@@ -55,6 +56,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('divisi') }}">{{ __('divisi') }}</a>
+                        </li>
+                        @endif
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('retur') }}">{{ __('retur') }}</a>
                         </li>
 
                             <li class="nav-item dropdown">

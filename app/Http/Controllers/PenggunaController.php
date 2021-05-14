@@ -71,7 +71,7 @@ class PenggunaController extends Controller
         ];
         $user = User::create($data);
         $user->info()->create($dataInfo);
-        return redirect('user');
+        return redirect('pengguna');
     }
 
     public function edit($id)
@@ -115,7 +115,7 @@ class PenggunaController extends Controller
         ];
 
         $user = User::find($id);
-        $user->updated($data);
+        $user->update($data);
         DB::table('info_user')->where('nik', $user->nik)->update($dataInfo);
 
         return redirect('pengguna');

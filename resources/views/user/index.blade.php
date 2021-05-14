@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <div class="d-flex">
                         <div class="mr-auto">User</div>
-                        <div class="ml-auto"><a class="btn btn-success" href="{{route('user.create')}}">Tambah</a></div>
+                        <div class="ml-auto"><a class="btn btn-success" href="{{route('pengguna.create')}}">Tambah</a></div>
                 </div>
 
                 <div class="table-responsive">
@@ -37,8 +37,8 @@
                           <td>{{$item->level}}</td>
                           <td style="    white-space: nowrap;
                           display: flex;">
-                            <a class="btn btn-sm btn-primary mr-3" href="{{route('user.edit', ['id'=>$item->id])}}">EDIT</a>
-                            <form action="{{ route('user.delete', ['id' => $item->id]) }}" method="post">
+                            <a class="btn btn-sm btn-primary mr-3" href="{{route('pengguna.edit', ['id'=>$item->id])}}">EDIT</a>
+                            <form action="{{ route('pengguna.delete', ['id' => $item->id]) }}" method="post">
                                 <input class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this item?');" type="submit" value="Delete" />
                                 <input type="hidden" name="_method" value="delete" />
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

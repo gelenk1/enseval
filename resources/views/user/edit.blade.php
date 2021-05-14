@@ -17,7 +17,7 @@
                 </div>
             @endif
                 <div class="card-body">
-                    <form action="{{route('user.update', ['id'=>$data->id])}}" method="POST">
+                    <form action="{{route('pengguna.update', ['id'=>$data->id])}}" method="POST">
                         @csrf
                         {{ method_field('PATCH') }}
                         <div class="form-group">

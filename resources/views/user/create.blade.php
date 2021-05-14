@@ -17,7 +17,7 @@
                     </div>
                 @endif
                 <div class="card-body">
-                    <form action="{{route('user.store')}}"method="post">
+                    <form action="{{route('pengguna.store')}}"method="post">
                         @csrf
                         <div class="form-group">
                             <label for="inputUser">User</label>

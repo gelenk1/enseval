@@ -51,6 +51,15 @@ Route::delete('cabang/{id}', 'CabangController@delete')->name('cabang.delete');
 
 #start of routes divisi
 Route::get('/divisi', 'DivisiController@index')->name('divisi');
+Route::get('/retur', 'ReturController@index')->name('retur');
+Route::get('/retur/create', 'ReturController@create')->name('retur.create');
+Route::post('retur', 'ReturController@store')->name('retur.store');
+Route::post('ekspedisiProcess', 'ReturController@ekspedisiProcess')->name('retur.ekspedisiProcess');
+Route::post('ekspedisiToRetur', 'ReturController@ekspedisiToRetur')->name('retur.ekspedisiToRetur');
+Route::post('returToCheck', 'ReturController@returToCheck')->name('retur.returToCheck');
+Route::post('adminGudangToCheck', 'ReturController@adminGudangToCheck')->name('retur.adminGudangToCheck');
+Route::post('adminToOracle', 'ReturController@adminToOracle')->name('retur.adminToOracle');
+
 Route::get('/divisi/create', 'DivisiController@create')->name('divisi.create');
 Route::post('divisi', 'DivisiController@store')->name('divisi.store');
 
@@ -60,13 +69,13 @@ Route::patch('divisi/{id}', 'DivisiController@update')->name('divisi.update');
 Route::delete('divisi/{id}', 'DivisiController@delete')->name('divisi.delete');
 #end of routes jabatan
 Route::get('/pengguna', 'PenggunaController@index')->name('pengguna');
-Route::get('/user/create', 'PenggunaController@create')->name('user.create');
-Route::post('user', 'PenggunaController@store')->name('user.store');
+Route::get('/pengguna/create', 'PenggunaController@create')->name('pengguna.create');
+Route::post('pengguna', 'PenggunaController@store')->name('pengguna.store');
 
-Route::get('/user/{id}/edit', 'PenggunaController@edit')->name('user.edit');
-Route::patch('user/{id}', 'PenggunaController@update')->name('user.update');
+Route::get('/pengguna/{id}/edit', 'PenggunaController@edit')->name('pengguna.edit');
+Route::patch('pengguna/{id}', 'PenggunaController@update')->name('pengguna.update');
 
-Route::delete('user/{id}', 'PenggunaController@delete')->name('user.delete');
+Route::delete('pengguna/{id}', 'PenggunaController@delete')->name('pengguna.delete');
 
 
 
